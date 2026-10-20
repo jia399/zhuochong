@@ -2,7 +2,9 @@
 
 一个有趣的 Windows 桌面宠物。透明置顶的小窗里住着「比目鱼博士」,会跳跃、会说话、能拖动,还支持滚轮缩放。
 
-![预览](pet.png)
+> 📌 **本仓库不含宠物图片素材。**
+> 运行前请自行准备一张 `pet.png`,放在 `pet.py` 同目录(建议透明背景 PNG)。
+> 程序会按图片原始尺寸等比例显示,缺图时会弹窗提示。
 
 ## ✨ 功能
 
@@ -12,15 +14,7 @@
 - **右键菜单**:交互 / 增加层数 / 减少层数 / 零核比目鱼 / 切换置顶 / 退出
 - **位置自适应**:初始在屏幕右下角,缩放、拖动后都不会跑出屏幕
 
-## 📥 下载使用
-
-到 **[Releases](../../releases)** 页下载 `zhuochong.exe`(即桌宠主程序),**双击即用,无需安装 Python 或任何依赖**。
-下载后可自行改名为 `桌宠.exe`,文件内容不变。
-
-> 首次启动需要几秒自解压,属正常现象。
-> 若杀毒软件误报(单文件打包程序常见),选择「仍要运行」即可。
-
-## 🔧 从源码运行
+## 🔧 运行
 
 需要 Python 3 + PyQt5:
 
@@ -31,23 +25,23 @@ pythonw pet.py
 
 或直接双击 `run桌宠.bat`(自动查找 Python 启动)。
 
-## 📦 重新打包(可选)
+## 📦 打包成 exe(可选)
 
 ```bash
 pip install pyinstaller
 pyinstaller --onefile --noconsole --name 桌宠 --icon pet.ico --add-data "pet.png;." pet.py
 ```
 
-> ⚠️ 注意:构建目录的**完整路径不能包含中文**,否则 PyInstaller 解析 Qt 插件路径会失败(路径被转成 `???` 报错 `Qt plugin directory does not exist`)。
+> ⚠️ 注意:构建目录的**完整路径不能包含中文**,否则 PyInstaller 解析 Qt 插件路径会失败
+> (路径被转成 `???` 报错 `Qt plugin directory does not exist`)。
 
 ## 📄 文件说明
 
 | 文件 | 说明 |
 | --- | --- |
 | `pet.py` | 主程序 |
-| `pet.png` | 宠物图片资源 |
 | `run桌宠.bat` | 源码启动脚本 |
-| `.gitignore` | 忽略构建产物 |
+| `LICENSE` | MIT 许可证 |
 
 ## 🛠 已修复的问题
 
@@ -58,3 +52,7 @@ pyinstaller --onefile --noconsole --name 桌宠 --icon pet.ico --add-data "pet.p
 - 晃动改对称序列,不再裁掉图像边缘
 - 跳跃中点击不再叠加跳跃动画;切换置顶不再重建窗口
 - 初始位置改为屏幕右下角,缩放后自动限制在屏幕内
+
+## 📜 许可证
+
+[MIT License](LICENSE) © 2026 jia399
